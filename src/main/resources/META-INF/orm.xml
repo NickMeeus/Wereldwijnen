@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd"
+	version="2.1">
+	<named-query name="Land.findAll">
+		<query>select l from Land l</query>
+	</named-query>
+	<named-query name="Wijn.findByMultipleIds">
+		<query>
+			select w from Wijn w join fetch w.soort
+			where w.id in (:ids)
+		</query>
+	</named-query>
+</entity-mappings>
